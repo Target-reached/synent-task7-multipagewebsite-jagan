@@ -28,3 +28,10 @@ document.addEventListener("keydown", function (event) {
     button.focus();
   }
 });
+
+for (const link of menu.querySelectorAll("a")) {
+  link.addEventListener("click", function () {
+    menu.classList.remove("open");
+    button.setAttribute("aria-expanded", "false");
+  });
+}
