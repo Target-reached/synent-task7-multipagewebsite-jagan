@@ -13,8 +13,13 @@ if (form) {
     const message = document.getElementById("message").value.trim();
     const status = document.getElementById("status");
     if (!name || !email || !message || !form.checkValidity()) {
+      status.style.color = "#b02c3a";
       status.textContent = "Please complete all fields with a valid email.";
+      for (const field of form.querySelectorAll("input, textarea")) {
+        if (!field.checkValidity()) { field.focus(); break; }
+      }
     } else {
+      status.style.color = "#16734b";
       status.textContent = "Form validated. Connect a backend to deliver messages.";
       form.reset();
     }
