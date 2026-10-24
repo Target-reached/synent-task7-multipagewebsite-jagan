@@ -20,3 +20,11 @@ if (form) {
     }
   });
 }
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && menu.classList.contains("open")) {
+    menu.classList.remove("open");
+    button.setAttribute("aria-expanded", "false");
+    button.focus();
+  }
+});
